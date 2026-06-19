@@ -1,6 +1,11 @@
 /// Main program file.
 
-int main(int argc, char** argv) {
+#include <print>
 
+#include "./node/node.hpp"
+#include "./edge/edge.hpp"
+
+int main(int argc, char** argv) {
+  
   return 0;
 }
