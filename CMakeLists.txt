@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(template_name)
+project(node-mover-cpp)
 
 # Cplusplus standard.
 set(CMAKE_CXX_STANDARD 23)
@@ -16,6 +16,7 @@ endif()
 # Source files.
 set(SOURCE_FILES
   src/main.cpp
+  src/node/node.cpp
 )
 
 # Executable options.
