@@ -16,7 +16,8 @@ endif()
 # Source files.
 set(SOURCE_FILES
   src/main.cpp
-  src/node/node.cpp
+  src/graph/node/node.cpp
+  src/graph/edge/edge.cpp
 )
 
 # Executable options.
