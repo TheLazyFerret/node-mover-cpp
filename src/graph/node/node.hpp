@@ -10,7 +10,7 @@ public:
   /// Special methods.
   inline Node() noexcept : pos_x(0), pos_y(0) {}
   inline explicit Node(std::int32_t x, std::int32_t y) noexcept : pos_x(x), pos_y(y) {}
-  // Implicit default copy and move.
+  // Implicit default copy, move and destructor.
 
   /// Public methods.
   std::pair<std::int32_t, std::int32_t> get_pos() const noexcept;
