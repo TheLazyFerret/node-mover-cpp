@@ -4,13 +4,22 @@
 #include <print>
 
 #include "./node/node.hpp"
-#include "./edge/edge.hpp"
 
 int main(int argc, char** argv) {
-  std::shared_ptr<Node> node_a = std::make_shared<Node>(5, 5);
-  std::shared_ptr<Node> node_b = std::make_shared<Node>(2, 2);
-  Edge edge(node_a, node_b, 1, Direction::Bidirectional);
-  std::println("node_a: {}", node_a.use_count());
-  std::println("node_b: {}", node_b.use_count());
+  std::shared_ptr<Node> node1 = std::make_shared<Node>(1, 1);
+  std::shared_ptr<Node> node2 = std::make_shared<Node>(2, 2);
+  std::shared_ptr<Node> node3 = std::make_shared<Node>(3, 3);
+  node1->add_edge({node1});
+  node1->add_edge({node2});
+  node1->add_edge({node3});
+
+
+  const auto node1_edges = node1->get_edges();
+  for (const auto& edge: node1_edges) {
+    if (edge.node == node1) {
+      std::println("same node");
+    }
+  }
+
   return 0;
 }

@@ -17,9 +17,8 @@ endif()
 set(SOURCE_FILES
   src/main.cpp
   src/node/node.cpp
-  src/edge/edge.cpp
 )
 
 # Executable options.
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
-target_compile_options(${PROJECT_NAME} PRIVATE )
+target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra)
