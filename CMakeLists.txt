@@ -15,6 +15,7 @@ endif()
 
 # Source files.
 set(SOURCE_FILES
+  src/node/node.cpp
   src/main.cpp
 )
 
