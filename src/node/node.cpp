@@ -15,7 +15,7 @@ void Node::add_edge(const std::shared_ptr<Node>& node, std::int32_t cost) {
   path(node)
       .and_then([this, cost](const auto value) {
         this->adjacent_nodes.at(value) = cost;
-        return std::make_optional(value);
+        return std::optional<std::weak_ptr<Node>>(value);
       })
       .or_else([this, node, cost]() {
         const std::weak_ptr<Node> obs(node);
