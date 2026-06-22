@@ -3,9 +3,9 @@
 #pragma once
 
 #include <cstdint>
-#include <utility>
 #include <memory>
 #include <set>
+#include <utility>
 
 class Node; // Fordward declaration.
 
@@ -28,12 +28,12 @@ public:
   inline std::pair<std::int32_t, std::int32_t> get_pos() const noexcept { return pos; }
   inline void set_pos(std::int32_t x, std::int32_t y) noexcept { pos = {x, y}; };
 
-  inline void add_edge(const Edge edge) noexcept {adjacent_nodes.insert(edge);}
-  inline const std::set<Edge>& get_edges() const noexcept {return adjacent_nodes;};
-  
+  inline void add_edge(const Edge edge) noexcept { adjacent_nodes.insert(edge); }
+  inline const std::set<Edge>& get_edges() const noexcept { return adjacent_nodes; };
+
 private:
   /// Private methods.
-  
+
   /// Attributes.
   std::pair<std::int32_t, std::int32_t> pos;
   std::set<Edge> adjacent_nodes;
