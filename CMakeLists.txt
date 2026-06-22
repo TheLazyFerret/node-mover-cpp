@@ -16,7 +16,6 @@ endif()
 # Source files.
 set(SOURCE_FILES
   src/main.cpp
-  src/node/node.cpp
 )
 
 # Executable options.
