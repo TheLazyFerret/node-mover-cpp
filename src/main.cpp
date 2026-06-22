@@ -14,10 +14,11 @@ int main(/*int argc, char** argv*/) {
 
   node1->add_edge(node2, 90);
   node1->add_edge(node3, 100);
-
-  node2.reset();
-  node1->clean_invalid_edges();
-
+  
+  //node2.reset();
+  //node1->clean_invalid_edges();
+  node1->delete_edge(node2);
+  
   std::println("node2 use_cost: {}", node2.use_count());
 
   for (const auto& obs : node1->get_adjacent()) {

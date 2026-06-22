@@ -24,6 +24,7 @@ public:
   inline void set_pos(std::int32_t x, std::int32_t y) noexcept { pos = {x, y}; };
 
   void add_edge(const std::shared_ptr<Node>&, std::int32_t);
+  void delete_edge(const std::shared_ptr<Node>&);
 
   void clean_invalid_edges() noexcept;
 
