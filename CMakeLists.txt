@@ -15,10 +15,11 @@ endif()
 
 # Source files.
 set(SOURCE_FILES
+  src/graph/graph.cpp
   src/node/node.cpp
   src/main.cpp
 )
 
 # Executable options.
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
-target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra)
+target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -g)

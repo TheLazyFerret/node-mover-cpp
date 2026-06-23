@@ -1,34 +1,49 @@
 //! Main program file.
 
-#include <memory>
+#include <expected>
 #include <print>
+#include <utility>
 
-#include "node/node.hpp"
+#include "graph/graph-spec.hpp"
+#include "graph/graph.hpp"
 
-// void recursive_deep_search(const std::shared_ptr<Node> initial_node) {}
+constexpr GraphSpec generate_example_graph_spec() {
+  GraphSpec graph_spec;
+  graph_spec.nodes.reserve(5);
+  NodeSpec node0_spec;
+  node0_spec.position = std::make_pair(0, 0);
+  node0_spec.edges.push_back({
+    .cost = 0, 
+    .destiny_node = 1
+  });
+  node0_spec.edges.push_back({
+    .cost = 0,
+    .destiny_node = 2
+  });
+  graph_spec.nodes.push_back(node0_spec);
+  NodeSpec node1_spec;
+  node1_spec.position = std::make_pair(1, 1);
+  node1_spec.edges.push_back({
+      .cost = 0,
+      .destiny_node = 3
+  });
+  node1_spec.edges.push_back({
+    .cost = 0,
+    .destiny_node = 4
+  });
+  graph_spec.nodes.push_back(node1_spec);
+  NodeSpec node2_spec;
+  node2_spec.position = std::make_pair(2, 2);
+  graph_spec.nodes.push_back(node2_spec);
+  NodeSpec node3_spec;
+  node3_spec.position = std::make_pair(3, 3);
+  graph_spec.nodes.push_back(node3_spec);
+  NodeSpec node4_spec;
+  node4_spec.position = std::make_pair(4, 4);
+  graph_spec.nodes.push_back(node4_spec);
+  return graph_spec;
+}
 
 int main(/*int argc, char** argv*/) {
-  std::shared_ptr<Node> node1 = std::make_shared<Node>(1, 1);
-  std::shared_ptr<Node> node2 = std::make_shared<Node>(2, 2);
-  std::shared_ptr<Node> node3 = std::make_shared<Node>(3, 3);
-
-  node1->add_edge(node2, 90);
-  node1->add_edge(node3, 100);
-  
-  //node2.reset();
-  //node1->clean_invalid_edges();
-  node1->delete_edge(node2);
-  
-  std::println("node2 use_cost: {}", node2.use_count());
-
-  for (const auto& obs : node1->get_adjacent()) {
-    if (auto lock = obs.first.lock()) {
-      const auto pos = lock->get_pos();
-      std::println("pos: {}, {}", pos.first, pos.second);
-    } else {
-      std::println("skipping expired observer");
-    }
-  }
-
-  return 0;
+  GraphSpec gs = generate_example_graph_spec();
 }

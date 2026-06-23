@@ -24,6 +24,5 @@ struct NodeSpec {
 /// Graph specification auxiliar structure.
 struct GraphSpec {
   std::optional<std::string> name; // Optional name.
-  std::size_t number_of_nodes;
   std::vector<NodeSpec> nodes;
 };
