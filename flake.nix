@@ -18,6 +18,7 @@
         clang-tools
         cmake
         gnumake
+        gdb
       ];
       inputsFrom = [];
       shellHook = ''
